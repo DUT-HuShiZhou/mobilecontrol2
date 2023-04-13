@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class operatepage extends StatefulWidget
 {
   @override
@@ -39,10 +38,10 @@ class operatepageState extends State<operatepage>
             padding: EdgeInsets.all(10),
             child: Column(
               children: [
-                Text('电压：3V',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
-                Text('电流：1A',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
-                Text('当前模式：省电模式（恒定功率）',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
-                Text('小车运行功率：2.5w',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
+                Text('',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
+               Text('电流：1A',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
+               Text('当前模式：省电模式（恒定功率）',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
+                 Text('小车运行功率：2.5w',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
                 Text('电源输出功率：3w',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
                 Text('刷新时间：1min',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
               ],

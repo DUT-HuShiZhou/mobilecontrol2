@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobilecontrol/models/PowerStateModel.dart';
+import 'package:provider/provider.dart';
 
 class hardcorePage extends StatefulWidget
 {
@@ -15,14 +17,15 @@ class hardcorepage extends State<hardcorePage>
   {
     return Material(
       color: Colors.blue,
-      child: Column(
+      child: Consumer<PowerStateModel>(builder:(context,model,child)=>Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           //TextField(),
           TextField(
-            onSubmitted: (value)=>{
-              print('用户选择的电压是$value v')
+            onSubmitted: (value){
+              print('用户选择的电压是$value v');
+              model.ChangeValtage(int.parse(value));
             },
             decoration: InputDecoration(
               labelText: '电压',
@@ -33,8 +36,9 @@ class hardcorepage extends State<hardcorePage>
             ),
           ),
           TextField(
-            onSubmitted: (value)=>{
-              print('用户选择的电流是$value A')
+            onSubmitted: (value){
+              print('用户选择的电流是$value A');
+              model.ChangeCurrent(int.parse(value));
             },
             decoration: InputDecoration(
               labelText: '电流',
@@ -45,17 +49,10 @@ class hardcorepage extends State<hardcorePage>
             ),
           ),
           ElevatedButton(
-              onPressed:()=>print('确认'),//确认后应该将变化应用于全局状态
-              child: Container(
-                decoration: BoxDecoration(color: Colors.white),
-                width: 412,
-                height: 50,
-                padding: EdgeInsets.all(8),
-                child: Text('确认',style: TextStyle(color: Colors.black,fontSize: 20,fontFamily: '宋体'),),
-              )
-          ),
-          ElevatedButton(
-              onPressed:()=>print('退出'),
+              onPressed:(){
+                print('退出');
+                Navigator.pop(context);
+                },
               child: Container(
                 decoration: BoxDecoration(color: Colors.white),
                 width: 412,
@@ -65,7 +62,7 @@ class hardcorepage extends State<hardcorePage>
               )
           )
         ],
-      ),
+      ),)
     );
   }
 }

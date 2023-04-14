@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobilecontrol/models/PowerStateModel.dart';
+import 'package:provider/provider.dart';
 class operatepage extends StatefulWidget
 {
   @override
@@ -30,7 +32,7 @@ class operatepageState extends State<operatepage>
             )
           ),
           Spacer(flex: 1,),
-          Container(
+          Consumer<PowerStateModel>(builder: (context,value,child)=>Container(
             width: 372,
             height: 300,
             alignment: Alignment.centerLeft,
@@ -38,15 +40,15 @@ class operatepageState extends State<operatepage>
             padding: EdgeInsets.all(10),
             child: Column(
               children: [
-                Text('',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
-               Text('电流：1A',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
-               Text('当前模式：省电模式（恒定功率）',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
-                 Text('小车运行功率：2.5w',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
+                Text('电压：${value.valtage}V',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
+                Text('电流：${value.current}A',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
+                Text('当前模式：${value.mode}',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
+                Text('小车运行功率：2.5w',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
                 Text('电源输出功率：3w',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
-                Text('刷新时间：1min',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
+                Text('刷新时间:${value.refreshTime}min',style: TextStyle(color: Colors.black,fontFamily: '宋体',fontSize: 18)),
               ],
             ),
-          ),
+          )),
           Spacer(flex: 1,),
           Row(
             children: [

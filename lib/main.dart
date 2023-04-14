@@ -1,5 +1,4 @@
 
-
 import 'package:flutter/material.dart';
 import 'package:mobilecontrol/models/PowerStateModel.dart';
 import 'package:mobilecontrol/pages/hardcorepage.dart';
@@ -11,7 +10,7 @@ import './pages/operatepage.dart';
 import'package:provider/provider.dart';
 void main(){
 
-  runApp(ChangeNotifierProvider(create:((context)=>PowerStateModel(0,0,'初始模式')),child: const Myapp())
+  runApp(ChangeNotifierProvider(create:((context)=>PowerStateModel(0,0,'初始模式',1)),child: const Myapp())
 
   );
 }
